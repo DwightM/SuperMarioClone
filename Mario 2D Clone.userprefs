@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\2D Mario Assets\Scripts\cameraBorderFollow2D.js">
+    <Files>
+      <File FileName="Assets\2D Mario Assets\Scripts\playerControls.js" Line="54" Column="34" />
+      <File FileName="Assets\2D Mario Assets\Scripts\cameraSmoothFollow2D.js" Line="12" Column="1" />
+      <File FileName="Assets\2D Mario Assets\Scripts\cameraBorderFollow2D.js" Line="21" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -42,13 +42,24 @@ function OnTriggerEnter(other : Collider)
 		{
 			Instantiate(itemParticle, transform.position, transform.rotation);
 		}
+		if (soundItemPickup)
+		{
+			PlaySound(soundItemPickup, 0);
+		}
+		yield WaitForSeconds(audio.clip.length);
+		if (extraLifeEnabled)
+		{
+			pProp.lives += pickupValue;
+			extraLifeEnabled = false;
+		}
+		Destroy(gameObject);
 	}
 }
 
 
 function ApplyPickup(playerStatus : playerProperties)
 {
-	var hudController = hudGameObject.GetComponent(hudController);
+	var hudCtrl = hudGameObject.GetComponent(hudController);
 
 	switch (pickupType)
 	{
@@ -66,7 +77,7 @@ function ApplyPickup(playerStatus : playerProperties)
 			break;
 		case EPickupType.Coin:
 			playerStatus.AddCoin(pickupValue);
-			hudController.coins += pickupValue;
+			hudCtrl.coin += pickupValue;
 
 			break;
 		case EPickupType.Fireball:

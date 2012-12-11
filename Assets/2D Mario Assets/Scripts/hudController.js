@@ -6,7 +6,7 @@ var coinFont3 : GameObject;
 
 
 private var index : int = 0;
-private var coin : int = 0;
+var coin : int = 0;
 
 
 function aniSprite ( spriteObject, columnSize, rowSize, colFrameStart, rowFrameStart, totalFrames, type:String, index:int)

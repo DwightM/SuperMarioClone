@@ -44,7 +44,8 @@ function Update ()
 			var socket = playerControls.playerFacingDirection == 0 ? projectileSocketLeft : projectileSocketRight;
 			var sign = playerControls.playerFacingDirection == 0 ? -1 : 1;
 			clone = Instantiate(projectileFire, socket.transform.position, transform.rotation);
-			clone.rigidbody.AddForce(90 * sign, 0, 0);
+			//clone.rigidbody.AddForce(90 * sign, 0, 0);
+			clone.GetComponent(projectileFireball).moveSpeed = sign * 2.0;
 		}
 	}
 }

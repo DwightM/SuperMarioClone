@@ -37,7 +37,6 @@ function OnTriggerEnter(other : Collider)
 		var hit : RaycastHit;
 		if (Physics.Raycast(transform.position, Vector3(1, 0, 0), hit, 0.1) || Physics.Raycast(transform.position, Vector3(-1, 0, 0), hit, 0.1))
 		{
-			ParticlePlay();
 			Destroy(gameObject);
 		}
 		else
@@ -49,7 +48,6 @@ function OnTriggerEnter(other : Collider)
 	
 	if (other.transform.tag == "enemy")
 	{
-		ParticlePlay();
 		Destroy(other.gameObject);
 		Destroy(gameObject);
 	}
@@ -58,7 +56,6 @@ function OnTriggerEnter(other : Collider)
 
 function KillFireball()
 {
-	ParticlePlay();
 	Destroy(gameObject, lifeSpan);
 }
 
@@ -73,4 +70,10 @@ function ParticlePlay()
 	{
 		Debug.Log("SmokePuff not set!");
 	}
+}
+
+
+function OnDestroy()
+{
+	ParticlePlay();
 }

@@ -63,6 +63,9 @@ function Start()
 {
 	CoinPos = Vector3(transform.position.x, transform.position.y, transform.position.z + .2);
 	BreakablePos = Vector3(transform.position.x, transform.position.y + .25, transform.position.z - 9);
+	PickupPos = Vector3(transform.position.x, transform.position.y + .45, transform.position.z - .1);
+	audio.clip = SoundBump;
+	BlockCoinAmountReset = BlockCoinAmount;
 }
 
 
@@ -90,10 +93,20 @@ function Update()
 				BlockAnimation = false;
 				
 				var _coin = Instantiate(PickupCoin, CoinPos, transform.rotation);
+				
 				BlockCoinAmount--;
 				
 				audio.clip = SoundBump;
 				audio.Play();
+			}
+			if (BlockCoinAmount == 0)
+			{
+				if (BlockStateAfter == EBlockType.BlockCoin)
+				{
+					BlockStateAfter = EBlockType.BlockBreakable;
+				}
+
+				BlockState = BlockStateAfter;
 			}
 
 			break;
@@ -136,11 +149,36 @@ function Update()
 				animation.Play("blockBounce");
 				BlockAnimation = false;
 
-				audio.clip = SoundBump;
+				Instantiate(GetPickupItem(), PickupPos, transform.rotation);
+
+				audio.clip = SoundPickup;
 				audio.Play();
+				
+				BlockState = BlockStateAfter;
 			}
+			
+			var _offset : float = Time.time * BlockQuestionScrollSpeed;
+			renderer.material.mainTextureOffset = Vector2(_offset, 0);
 
 			break;
+		default:
+			break;
+	}
+}
+
+
+function GetPickupItem()
+{
+	switch (PickupState)
+	{
+		case EPickUpType.MushroomGrow:
+			return PickupMushroomGrow;
+		case EPickUpType.MushroomLife:
+			return PickupMushroomLife;
+		case EPickUpType.FireFlower:
+			return PickupFireFlower;
+		default:
+			return null;
 	}
 }
 

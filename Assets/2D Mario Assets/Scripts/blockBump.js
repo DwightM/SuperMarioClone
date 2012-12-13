@@ -19,8 +19,8 @@ enum EPickUpType
 
 enum EBreakType
 {
-	Geometry,
-	Particles
+	BreakableGeometry,
+	BreakableParticles
 }
 
 
@@ -61,7 +61,8 @@ private var BlockCoinAmountReset : int;
 
 function Start()
 {
-
+	CoinPos = Vector3(transform.position.x, transform.position.y, transform.position.z + .2);
+	BreakablePos = Vector3(transform.position.x, transform.position.y + .25, transform.position.z - 9);
 }
 
 
@@ -75,9 +76,70 @@ function Update()
 			{
 				animation.Play("blockBounce");
 				BlockAnimation = false;
+
+				audio.clip = SoundBump;
 				audio.Play();
 			}
+
+			break;
+		case EBlockType.BlockCoin:
+			renderer.material = MaterialBlock1;
+			if (BlockAnimation)
+			{
+				animation.Play("blockBounce");
+				BlockAnimation = false;
+				
+				var _coin = Instantiate(PickupCoin, CoinPos, transform.rotation);
+				BlockCoinAmount--;
+				
+				audio.clip = SoundBump;
+				audio.Play();
+			}
+
+			break;
+		case EBlockType.BlockBreakable:
+			renderer.material = MaterialBlock1;
+			if (BlockAnimation)
+			{
+				animation.Play("blockBounce");
+				BlockAnimation = false;
+
+				if (BreakState == EBreakType.BreakableGeometry)
+				{
+					Instantiate(BreakableGeometry, BreakablePos, transform.rotation);
+				}
+				if (BreakState == EBreakType.BreakableParticles)
+				{
+					Instantiate(BreakableParticles, transform.position, transform.rotation);
+				}
+
+				// Delete complete hierarchy.
+				Destroy(transform.parent.gameObject);
+			}
+
+			break;
+		case EBlockType.BlockSolid:
+			renderer.material = MaterialBlock2;
+			if (BlockAnimation)
+			{
+				BlockAnimation = false;
 			
+				audio.clip = SoundBump;
+				audio.Play();
+			}
+
+			break;
+		case EBlockType.BlockQuestion:
+			renderer.material = MaterialBlock4;
+			if (BlockAnimation)
+			{
+				animation.Play("blockBounce");
+				BlockAnimation = false;
+
+				audio.clip = SoundBump;
+				audio.Play();
+			}
+
 			break;
 	}
 }

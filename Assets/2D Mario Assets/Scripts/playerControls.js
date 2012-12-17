@@ -14,7 +14,7 @@ var soundCrouchJump : AudioClip;
 var particleJump : Transform;
 
 
-private var velocity : Vector3 = Vector3.zero;
+var velocity : Vector3 = Vector3.zero;
 private var jumpEnabled : boolean = false;
 private var runJumpEnabled : boolean = false;
 private var crouchJumpEnabled : boolean = false;

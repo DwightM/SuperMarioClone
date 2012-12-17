@@ -1,13 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\2D Mario Assets\Scripts\blockCoin.js">
-    <Files>
-      <File FileName="Assets\2D Mario Assets\Scripts\blockBreakables.js" Line="17" Column="42" />
-      <File FileName="Assets\2D Mario Assets\Scripts\blockBump.js" Line="157" Column="34" />
-      <File FileName="Assets\2D Mario Assets\Scripts\projectileFireball.js" Line="1" Column="1" />
-      <File FileName="Assets\2D Mario Assets\Scripts\blockCoin.js" Line="17" Column="15" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

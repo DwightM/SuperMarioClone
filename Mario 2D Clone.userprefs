@@ -1,6 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\2D Mario Assets\Scripts\spawnTubePoints.js">
+    <Files>
+      <File FileName="Assets\2D Mario Assets\Scripts\spawnTubePoints.js" Line="44" Column="35" />
+      <File FileName="Assets\2D Mario Assets\Scripts\blockBump.js" Line="1" Column="1" />
+      <File FileName="Assets\2D Mario Assets\Scripts\playerControls.js" Line="1" Column="1" />
+      <File FileName="Assets\2D Mario Assets\Scripts\spawnSaveSetup.js" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
